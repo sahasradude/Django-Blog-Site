@@ -1,0 +1,22 @@
+{%extends 'blog/base.html'%} 
+
+{% block content %}
+   <div class="pull-right"> 
+        <a href="{% url 'subscribe' sub_pk=title %}"><button type = "button" class = "btn btn-primary">Subscribe</button></a>
+            <h4> Subscribers: {{ subno }}</h4>
+    </div>
+    <h1>{{ title }}</h1>
+    </br>
+    </br>
+    {% for post in topic_posts %}
+        <div class="post">
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            </ br>
+            <h3>Author: {{ post.author }}</h3>
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>              
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

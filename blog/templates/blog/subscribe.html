@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <h1>My Subscriptions:</h1>
+    </br>
+    </br>
+    </br>
+    <ul>
+        {% for sub in subs %}
+            <li><h4><a href="{% url 'topic' topic_pk=sub.topic_title.topic_title%}">{{ sub.topic_title.topic_title }}</a></h4></li>
+        {% endfor %} 
+    </ul>
+{% endblock %}
